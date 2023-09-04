@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import DatatablesController from "./datatables_controller"
+application.register("datatables", DatatablesController)
+
+import MessageController from "./message_controller"
+application.register("message", MessageController)
+
+import TimeupController from "./timeup_controller"
+application.register("timeup", TimeupController)
