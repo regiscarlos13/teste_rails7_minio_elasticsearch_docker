@@ -1,12 +1,11 @@
 <nav class="navbar navbar-expand-md bg-success sticky-top border-bottom" data-bs-theme="dark">
   <div class="container">
-    <a class="navbar-brand d-md-none" href="#">
-      Municipes
-    </a>
+    <%= link_to 'Munícipe', citizens_path, class: 'navbar-brand d-md-none' %>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="#offcanvas" aria-labelledby="#offcanvasLabel">
       <div class="offcanvas-body">
         <ul class="navbar-nav flex-grow-1 justify-content-start">
-          <li class="nav-item"><a class="nav-link" href="#">Municipes</a></li>
+          <li class="nav-item"><%= link_to 'Home', root_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'Munícipe', citizens_path, class: 'nav-link' %></li>
         </ul>
       </div>
     </div>

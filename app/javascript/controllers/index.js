@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AlertController from "./alert_controller"
+application.register("alert", AlertController)
+
 import DatatablesController from "./datatables_controller"
 application.register("datatables", DatatablesController)
 

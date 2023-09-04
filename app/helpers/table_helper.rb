@@ -46,8 +46,8 @@ module TableHelper # :nodoc:
   end
 
   def btn_form
-    field_table('') { |f| btn_show(f) }
-    field_table('') { |f| btn_edit(edit_path(f)) }
-    # field_table('') { |f| btn_delete(f) }
+    # field_table('') { |f| btn_show(f) }
+    # field_table('') { |f| btn_edit(edit_path(f)) }
+    field_table('') { |f| btn_delete(f) }
   end
 end

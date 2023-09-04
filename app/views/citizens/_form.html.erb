@@ -1,0 +1,15 @@
+<div class="p-5">
+  <%= simple_form_for(@citizen, 
+  wrapper: :horizontal_form) do |f| %>
+  <%= show_message(@citizen) %>
+    <%= f.input :name %>
+    <%= f.input :cpf %>
+    <%= f.input :cns %>
+    <%= f.input :email %>
+    <%= f.input :birth_date %>
+    <%= f.input :phone %>
+    <%= f.input :status %>
+  <hr>
+  <%= btn_save %>  <%  @btn_new = btn_cancel(citizens_path) %>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<% @card_title = @citizens.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_citizen_path) %>
+<div class="table-responsive">
+  <%= table_for(@citizens) do %>
+      <% field_table(@citizens.model.human_attribute_name('name'))  { |f| link_to f.name, f } %>
+      <% field_table(@citizens.model.human_attribute_name('cpf'))  { |f| f.cpf } %>
+      <% field_table(@citizens.model.human_attribute_name('cns'))  { |f| f.cns } %>
+      <% field_table(@citizens.model.human_attribute_name('email'))  { |f| f.email } %>
+      <% field_table(@citizens.model.human_attribute_name('birth_date'))  { |f| data_format(f.birth_date) } %>
+      <% field_table(@citizens.model.human_attribute_name('phone'))  { |f| f.phone } %>
+      <% field_table(@citizens.model.human_attribute_name('status'))  { |f| format_status(f.status) } %>
+    <% btn_form %>
+  <% end %>
+</div>
