@@ -8,13 +8,12 @@ RSpec.describe 'citizens/index', type: :view do
   before { assign :citizen, citizen }
 
   it 'renders a list of citizens' do
-    
     # render
     # assert_select "tr#permission_1 td", "test user01"
     # assert_select "tr#permission_1 td", "Reading permission"
     # byebug
 
-    cell_selector = 'tr td'
+    'tr td'
     # assert_select cell_selector, text: Regexp.new('Name'.to_s), count: 2
     # assert_select cell_selector, text: Regexp.new('Cpf'.to_s), count: 2
     # assert_select cell_selector, text: Regexp.new('Cns'.to_s), count: 2

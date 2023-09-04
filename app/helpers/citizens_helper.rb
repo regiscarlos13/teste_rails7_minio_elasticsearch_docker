@@ -3,7 +3,7 @@
 module CitizensHelper
   def format_status(status)
     color = status.eql?('active') ? 'success' : 'warning'
-    content_tag(:span, status, class: "badge text-bg-#{color}")
+    content_tag(:span, Citizen.human_enum_name(:status, status), class: "badge text-bg-#{color}")
   end
 
   def cpf_format(cpf)

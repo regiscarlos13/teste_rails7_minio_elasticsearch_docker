@@ -11,5 +11,7 @@ pt-BR:
         cns: CNS
         birth_date: Nascimento
         phone: Telefone
-        status: Status
+        statuses:
+          active: Ativo
+          inactive: Inativo
         
