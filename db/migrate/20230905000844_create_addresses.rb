@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateAdresses < ActiveRecord::Migration[7.0]
+class CreateAddresses < ActiveRecord::Migration[7.0]
   def change
-    create_table :adresses, id: :uuid do |t|
+    create_table :addresses, id: :uuid do |t|
       t.references :citizen, null: false, foreign_key: true, type: :uuid
       t.string :cep, null: false
       t.string :street, null: false

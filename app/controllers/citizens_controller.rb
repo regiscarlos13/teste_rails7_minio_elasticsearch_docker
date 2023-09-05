@@ -11,6 +11,7 @@ class CitizensController < ApplicationController
 
   def new
     @citizen = Citizen.new
+    @citizen.build_address
   end
 
   def edit; end
@@ -52,6 +53,9 @@ class CitizensController < ApplicationController
   end
 
   def citizen_params
-    params.require(:citizen).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status)
+    attributes_address = %I[id cep street complement neighborhood city uf code_ibge].freeze
+    attributes_citizen = %I[name cpf cns email birth_date phone status photograph].freeze
+
+    params.require(:citizen).permit(attributes_citizen, address_attributes: [attributes_address])
   end
 end

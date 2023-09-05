@@ -13,8 +13,4 @@ module CitizensHelper
   def data_format(data)
     data.strftime('%d/%m/%Y') if data.present?
   end
-
-  def matricula_format(matricula)
-    "#{matricula[0, 3]}.#{matricula[3, 3]}-#{matricula[6, 1]}-#{matricula[7, 1]}" if matricula.present?
-  end
 end

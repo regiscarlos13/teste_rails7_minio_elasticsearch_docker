@@ -1,32 +1,40 @@
 <% @card_title = "Registro de " + @citizen.model_name.human(count: 1) %>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.name' %>:</strong>
-    <%= @citizen.name %>
-  </p>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.cpf' %>:</strong>
-    <%= @citizen.cpf %>
-  </p>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.cns' %>:</strong>
-    <%= @citizen.cns %>
-  </p>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.email' %>:</strong>
-    <%= @citizen.email %>
-  </p>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.birth_date' %>:</strong>
-    <%= data_format(@citizen.birth_date) %>
-  </p>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.phone' %>:</strong>
-    <%= @citizen.phone %>
-  </p>
-  <p>
-    <strong><%= translate 'activerecord.attributes.citizen.status' %>:</strong>
-    <%= I18n.t("activerecord.attributes.citizen.statuses.#{@citizen.status.to_s}") %>
-    
-  </p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.name' %>:</strong>
+  <%= @citizen.name %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.cpf' %>:</strong>
+  <%= cpf_format(@citizen.cpf) %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.cns' %>:</strong>
+  <%= @citizen.cns %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.email' %>:</strong>
+  <%= @citizen.email %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.birth_date' %>:</strong>
+  <%= data_format(@citizen.birth_date) %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.phone' %>:</strong>
+  <%= @citizen.phone %>
+</p>
+<p>
+  <strong><%= translate 'activerecord.attributes.citizen.status' %>:</strong>
+  <%= I18n.t("activerecord.attributes.citizen.statuses.#{@citizen.status.to_s}") %>
+</p>
+<p>
+ <div class="d-flex justify-content-start mb-4" style="height: 200px;">
+  <% if @citizen.photograph .attached? %>
+    <%= image_tag @citizen.photograph %>
+  <% else %>
+    <p>Nenhuma imagem disponível</p>
+  <% end %>
+  </div>
+</p>
 <%= btn_edit(edit_citizen_path(@citizen)) %> | 
 <%= btn_back(citizens_path) %>

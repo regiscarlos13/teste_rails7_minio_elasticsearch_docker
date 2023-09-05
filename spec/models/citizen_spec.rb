@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Citizen, type: :model do
   subject(:citizen) { create(:citizen) }
 
-  # let(:address_attributes) { attributes_for(:address) }
+  let(:address_attributes) { attributes_for(:address) }
 
   context 'with migrations' do
     it { is_expected.to have_db_column(:id).of_type(:uuid) }
@@ -32,7 +32,7 @@ RSpec.describe Citizen, type: :model do
   end
 
   context 'with validations' do
-    #   it { is_expected.to have_one(:logistic) }
+    it { is_expected.to have_one(:address) }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:cpf) }
     it { is_expected.to validate_presence_of(:cns) }

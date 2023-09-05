@@ -3,7 +3,7 @@
 <div class="table-responsive">
   <%= table_for(@citizens) do %>
       <% field_table(@citizens.model.human_attribute_name('name'))  { |f| link_to f.name, f } %>
-      <% field_table(@citizens.model.human_attribute_name('cpf'))  { |f| f.cpf } %>
+      <% field_table(@citizens.model.human_attribute_name('cpf'))  { |f| cpf_format(f.cpf) } %>
       <% field_table(@citizens.model.human_attribute_name('cns'))  { |f| f.cns } %>
       <% field_table(@citizens.model.human_attribute_name('email'))  { |f| f.email } %>
       <% field_table(@citizens.model.human_attribute_name('birth_date'))  { |f| data_format(f.birth_date) } %>

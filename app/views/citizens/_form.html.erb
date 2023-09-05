@@ -3,16 +3,88 @@
   wrapper_mappings: {
         radio_buttons: :horizontal_collection
       }
-  ) do |f| %>
+  ) do |citizen| %>
     <%= show_message(@citizen) %>
-    <%= f.input :name %>
-    <%= f.input :cpf %>
-    <%= f.input :cns %>
-    <%= f.input :email %>
-    <%= f.input :birth_date, as: :string,  input_html: {type: 'date'} %>
-    <%= f.input :phone %>
-    <%= f.input :status, as: :radio_buttons, collection: f.object.class.statuses.keys.map { |status| [I18n.t("activerecord.attributes.citizen.statuses.#{status}"), status] } %>
+    <div class="h4 mb-4 border-bottom"> Dados Pessoais</div>
+    <div class="container ">
+      <div class="row ">
+        <div class="col-9">
+          <div class="row">
+            <div class="col-12">
+              <%= citizen.input :name, placeholder: 'Nome completo' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <%= citizen.input :cpf, placeholder: "CPF", input_html: { data: { controller: "cpf", 'cpf-target': "cpf", action: "input->cpf#valida_cpf" } } %>
+            </div>
+            <div class="col">
+              <%= citizen.input :birth_date, as: :string,  input_html: {type: 'date'} %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <%= citizen.input :phone, placeholder: '(00)0.0000-0000' %>
+            </div>
+            <div class="col">
+              <%= citizen.input :cns, placeholder: 'Cartão nacional de saúde' %>
+            </div>
+          </div>
+          <div class="col">
+            <%= citizen.input :email, placeholder: 'email@email.com.br' %>
+          </div>
+          <div class="col">
+            <%= citizen.input :status, as: :radio_buttons, collection: citizen.object.class.statuses.keys.map { |status| [I18n.t("activerecord.attributes.citizen.statuses.#{status}"), status] } %>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="d-flex justify-content-center mb-4" style="height: 200px;">
+            <% if @citizen.photograph.attached? %>
+              <%= image_tag @citizen.photograph %>
+            <% else %>
+              <%= image_tag('image.jpg') %>
+            <% end %>
+          </div>
+          <%= citizen.file_field :photograph, multiple: false, direct_upload: true, id: "image-input" %>
+        </div>
+      </div>
+    </div>
+    <div class="h4 mb-4 mt-2 border-bottom"> Endereço</div>
+    <%= citizen.simple_fields_for :address do |address| %>
+      <div data-controller='cep'>
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <%= address.input :cep, placeholder: '00.000-000', input_html: {data: {action: 'input->cep#search_cep change->cep#valida', 'cep-target': 'cep'} }  %>
+            </div>
+            <div class="col-5">
+              <%= address.input :street, placeholder: 'Endereço', input_html: {data: {'cep-target': 'street'} } %>
+            </div>
+            <div class="col-4">
+              <%= address.input :neighborhood, placeholder: 'Bairro', input_html: {data: {'cep-target': 'neighborhood'} } %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <%= address.input :uf, placeholder: 'UF', input_html: {data: {'cep-target': 'uf'} } %>
+            </div>
+            <div class="col-4">
+              <%= address.input :city, placeholder: 'Cidade', input_html: {data: {'cep-target': 'city'} } %>
+            </div>
+            <div class="col-6">
+              <%= address.input :complement, placeholder: 'Complemento' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <%= address.input :code_ibge, input_html: {data: {'cep-target': 'codeIbge'} } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <hr>
     <%= btn_save %>  <%  @btn_new = btn_cancel(citizens_path) %>
   <% end %>
 </div>
+

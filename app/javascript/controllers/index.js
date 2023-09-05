@@ -7,6 +7,12 @@ import { application } from "./application"
 import AlertController from "./alert_controller"
 application.register("alert", AlertController)
 
+import CepController from "./cep_controller"
+application.register("cep", CepController)
+
+import CpfController from "./cpf_controller"
+application.register("cpf", CpfController)
+
 import DatatablesController from "./datatables_controller"
 application.register("datatables", DatatablesController)
 
