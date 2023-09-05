@@ -1,15 +1,18 @@
 <div class="p-5">
-  <%= simple_form_for(@citizen, 
-  wrapper: :horizontal_form) do |f| %>
-  <%= show_message(@citizen) %>
+  <%= simple_form_for(@citizen,wrapper: :horizontal_form,
+  wrapper_mappings: {
+        radio_buttons: :horizontal_collection
+      }
+  ) do |f| %>
+    <%= show_message(@citizen) %>
     <%= f.input :name %>
     <%= f.input :cpf %>
     <%= f.input :cns %>
     <%= f.input :email %>
-    <%= f.input :birth_date %>
+    <%= f.input :birth_date, as: :string,  input_html: {type: 'date'} %>
     <%= f.input :phone %>
-    <%= f.input :status %>
-  <hr>
-  <%= btn_save %>  <%  @btn_new = btn_cancel(citizens_path) %>
+    <%= f.input :status, as: :radio_buttons, collection: f.object.class.statuses.keys.map { |status| [I18n.t("activerecord.attributes.citizen.statuses.#{status}"), status] } %>
+    <hr>
+    <%= btn_save %>  <%  @btn_new = btn_cancel(citizens_path) %>
   <% end %>
 </div>

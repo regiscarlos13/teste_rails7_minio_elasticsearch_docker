@@ -20,7 +20,7 @@ class CitizensController < ApplicationController
 
     respond_to do |format|
       if @citizen.save
-        format.html { redirect_to citizen_url(@citizen), notice: 'Citizen was successfully created.' }
+        format.html { redirect_to citizen_url(@citizen), notice: 'O registro foi criado com sucesso.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -30,10 +30,18 @@ class CitizensController < ApplicationController
   def update
     respond_to do |format|
       if @citizen.update(citizen_params)
-        format.html { redirect_to citizen_url(@citizen), notice: 'Citizen was successfully updated.' }
+        format.html { redirect_to citizen_url(@citizen), notice: 'O registro foi atualizado com sucesso.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @citizen.destroy
+
+    respond_to do |format|
+      format.html { redirect_to citizens_url, notice: 'O registro foi removido com sucesso.' }
     end
   end
 

@@ -17,7 +17,7 @@
   </p>
   <p>
     <strong><%= translate 'activerecord.attributes.citizen.birth_date' %>:</strong>
-    <%= @citizen.birth_date %>
+    <%= data_format(@citizen.birth_date) %>
   </p>
   <p>
     <strong><%= translate 'activerecord.attributes.citizen.phone' %>:</strong>
@@ -25,7 +25,8 @@
   </p>
   <p>
     <strong><%= translate 'activerecord.attributes.citizen.status' %>:</strong>
-    <%= @citizen.status %>
+    <%= I18n.t("activerecord.attributes.citizen.statuses.#{@citizen.status.to_s}") %>
+    
   </p>
 <%= btn_edit(edit_citizen_path(@citizen)) %> | 
 <%= btn_back(citizens_path) %>
