@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'aws-sdk-s3'
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'cpf_cnpj'
 gem 'cssbundling-rails'
@@ -14,6 +14,7 @@ gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
+gem 'rack-cors'
 gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
 gem 'redis', '~> 4.0'
 gem 'simple_form'
@@ -23,12 +24,15 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'validators'
 
-group :development, :test do
-  gem 'byebug'
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+group :teste_producao, :default do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+end
+
+group :development, :test do
+  gem 'byebug'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'shoulda-matchers'

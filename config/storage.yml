@@ -2,11 +2,15 @@ test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
 
-local:
+minio:
   service: S3
-  endpoint: <%= ENV['MINIO_ACCESS'] %>
-  access_key_id: <%= ENV['MINIO_ACCESS_KEY'] %>
-  secret_access_key: <%= ENV['MINIO_SECRET_KEY'] %>
-  bucket: <%= ENV['MINIO_BUCKET'] %>
-  region: ENV['AWS_REGION']
+  endpoint: <%= ENV['MINIO_ROOT_HOST'] %>
+  access_key_id: <%= ENV['MINIO_ROOT_USER'] %>
+  secret_access_key: <%= ENV['MINIO_ROOT_PASSWORD'] %>
+  bucket: <%= ENV['MINIO_MEDIA_STORE_BUCKET'] %>
+  region: <%= ENV['AWS_REGION'] %>
   force_path_style: true
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>

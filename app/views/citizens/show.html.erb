@@ -29,7 +29,7 @@
 </p>
 <p>
  <div class="d-flex justify-content-start mb-4" style="height: 200px;">
-  <% if @citizen.photograph .attached? %>
+  <% if @citizen.photograph.attached? %>
     <%= image_tag @citizen.photograph %>
   <% else %>
     <p>Nenhuma imagem disponível</p>

@@ -10,6 +10,9 @@ application.register("alert", AlertController)
 import CepController from "./cep_controller"
 application.register("cep", CepController)
 
+import ChartController from "./chart_controller"
+application.register("chart", ChartController)
+
 import CpfController from "./cpf_controller"
 application.register("cpf", CpfController)
 
