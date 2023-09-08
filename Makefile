@@ -3,6 +3,7 @@ DOCKER := docker-compose
 build:
 	${DOCKER} build
 up:
+	${DOCKER} build && \
 	${DOCKER} up
 setup:
 	${DOCKER} exec web bin/rails db:create db:migrate db:seed
@@ -12,7 +13,7 @@ down:
 	${DOCKER} down
 console:
 	${DOCKER} exec web /bin/bash
-test:
+teste:
 	rspec
 reindex:
 	${DOCKER} exec web rake searchkick:reindex:all
