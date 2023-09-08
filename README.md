@@ -1,24 +1,90 @@
-# README
+# Teste com Rails 7, StimulusJs, Minio, ElasticSearh e Docker.
+<img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white" />
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+">
+<img src="https://img.shields.io/badge/Elastic-FFFFFF?style=for-the-badge&logo=elastic&logoColor=black
+">
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
+<hr>
+<img src="https://github.com/regiscarlos13/teste_rails7_minio_elasticsearch_docker/blob/main/app/assets/images/tela.png" >
+<img src="https://github.com/regiscarlos13/teste_rails7_minio_elasticsearch_docker/blob/main/app/assets/images/diagramas.png" >
+<hr>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Esse projeto visa testar os conhecimento em Ruby on Rails, temos cobertura de teste feita com rspec, storage de armazemaento feita em Minio e consulta com ElasticSerch. Também foi usado no frontend o stimulusjs, foram criados templates padrão para o projeto dentro da pasta lib, assim as próximas telas ficaram mais rapida o desenvolvimento. Foi criados helps para evitar a repetição de codigo e deixas as telas mais limpas.
 
-Things you may want to cover:
+### Ajustes e melhorias
 
-* Ruby version
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-* System dependencies
+- [x] Diagrama de Dados
+- [x] Ruby on Rails 7
+- [x] Bootstrap
+- [x] Stimulus
+- [x] DataTables
+- [x] Libs para templates
+- [x] Helps
+- [x] Postgres
+- [x] MinIo
+- [x] ElasticSearch
+- [x] Docker
+- [x] Nginx para deploy
+- [ ] Rabbimqt
+- [ ] Redis
 
-* Configuration
+## 💻 Pré-requisitos
 
-* Database creation
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-* Database initialization
+* Você instalou a versão  `<docker / 24.0.5>`
+* Você instalou a versão  `<docker-compose / 2.16.0>`
+* Você tem uma máquina `<Windows / Linux / Mac>`.
 
-* How to run the test suite
+## 🚀 Instalando projeto
 
-* Services (job queues, cache servers, search engines, etc.)
+Para instalar o projeto, siga estas etapas:
 
-* Deployment instructions
+1 - baixe a aplicação:
+```
+<git clone https://github.com/regiscarlos13/teste_rails7_minio_elasticsearch_docker.git>
+```
 
-* ...
+2 - acesse a pasta:
+```
+<cd teste_rails7_minio_elasticsearch_docker>
+```
+3 - rode o camando a baixo para build image da aplicação - OBS: So precisar rodar uma vez:
+```
+<make build>
+```
+
+4 - rode o camando a baixo para rodar as imagem:
+```
+<make up>
+```
+
+5 - criar banco e popular:
+```
+<make setup>
+```
+
+6 - rode os teste:
+```
+<make teste>
+```
+
+7 - para as imagem:
+```
+<make down>
+```
+
+
+## ☕ Usando projeto>
+
+Obs: para usar a aplicação, uma vez que executou os passos anteriores e parou as imagem, voçê so precisar usar o item: 4 (make up).
+para
+
+Para usar projeto, acesse:
+
+```
+<http://localhost:8001/>
+```

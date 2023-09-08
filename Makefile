@@ -3,8 +3,7 @@ DOCKER := docker-compose
 build:
 	${DOCKER} build
 up:
-	${DOCKER} build && \
-	${DOCKER} up
+	${DOCKER} up -d
 setup:
 	${DOCKER} exec web bin/rails db:create db:migrate db:seed
 start:
