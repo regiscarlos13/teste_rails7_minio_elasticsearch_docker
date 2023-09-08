@@ -1,8 +1,8 @@
 # Teste com Rails 7, StimulusJs, Minio, ElasticSearh e Docker.
 ![image](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
-!["https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"]("https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white")
-![image]("https://img.shields.io/badge/Elastic-FFFFFF?style=for-the-badge&logo=elastic&logoColor=black")
-![image]("https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white")
+![image](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![image](https://img.shields.io/badge/Elastic-FFFFFF?style=for-the-badge&logo=elastic&logoColor=black)
+![image](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 <hr>
 <img src="https://github.com/regiscarlos13/teste_rails7_minio_elasticsearch_docker/blob/main/app/assets/images/diagramas.png" >
