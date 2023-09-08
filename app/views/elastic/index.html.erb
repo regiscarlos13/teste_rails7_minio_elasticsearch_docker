@@ -1,12 +1,14 @@
 <% @card_title = 'Consulta via Elastick' %>
 
 <%= form_with url: search_path, data: { turbo_frame: :results } do |f| %>
-  <%= f.label :Buscar %>
+  <%= f.label :pesquisar  %>
   <%= f.text_field :search, 
                                             oninput: 'this.form.requestSubmit()',
                                             autofocus: true,
-                                            autocomplete: 'off' %>
+                                            autocomplete: 'off',
+                                            placeholder: 'Nome ou CPF' %>
 <% end %>
+<hr>
 <%= turbo_frame_tag :results do %>
   <div class="table-responsive">
     <table class="table table-striped table-bordered table-sm">

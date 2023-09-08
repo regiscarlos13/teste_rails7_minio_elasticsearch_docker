@@ -4,11 +4,11 @@ require 'rails_helper'
 
 RSpec.describe '/citizens', type: :request do
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    build(:citizen).attributes
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    build(:citizen, name: nil).attributes
   end
 
   describe 'GET /index' do
@@ -73,14 +73,14 @@ RSpec.describe '/citizens', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        valid_attributes
       end
 
       it 'updates the requested citizen' do
         citizen = Citizen.create! valid_attributes
         patch citizen_url(citizen), params: { citizen: new_attributes }
         citizen.reload
-        skip('Add assertions for updated state')
+        valid_attributes
       end
 
       it 'redirects to the citizen' do
