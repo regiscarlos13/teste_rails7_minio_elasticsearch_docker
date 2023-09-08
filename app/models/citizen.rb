@@ -13,6 +13,8 @@ class Citizen < ApplicationRecord
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_save :remove_caracteres
+  after_commit :reindex
+  searchkick
 
   enum status: {
     active: 0,

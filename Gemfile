@@ -9,6 +9,7 @@ gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
 gem 'cpf_cnpj'
 gem 'cssbundling-rails'
+gem 'elasticsearch'
 gem 'image_processing'
 gem 'jbuilder'
 gem 'jsbundling-rails'
@@ -17,6 +18,7 @@ gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
 gem 'redis', '~> 4.0'
+gem 'searchkick'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
@@ -25,7 +27,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'validators'
 
 group :teste_producao, :default do
-  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
 end
@@ -33,6 +34,7 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'shoulda-matchers'

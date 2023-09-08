@@ -27,6 +27,22 @@ services:
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
       MINIO_MEDIA_STORE_BUCKET: ${MINIO_MEDIA_STORE_BUCKET}
     command: server --console-address :9001 /data
+  elasticsearch:
+    image: elasticsearch:7.8.0
+    container_name: elasticsearch
+    ports:
+      - 9200:9200
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    environment:
+      - cluster.name=es-docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
   web:
     build: .
     container_name: sistema_teste
@@ -41,10 +57,11 @@ services:
       - postgresdb
       - minio
       # - rabbitmq
-      # - elasticsearch
+      - elasticsearch
 secrets:
   master_key:
     file: ./config/master.key
 volumes:
   postgres-data:
   minio-data:
+  es-data:

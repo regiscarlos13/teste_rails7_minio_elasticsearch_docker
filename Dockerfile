@@ -13,6 +13,8 @@ RUN mkdir /home/app/sistema_teste
 WORKDIR /home/app/sistema_teste
 
 ENV RAILS_ENV=production
+ENV ELASTICSEARCH_URL=http://elasticsearch:9200
+ENV MINIO_ROOT_HOST=http://minio:9000
 ENV BUNDLE_WITHOUT="development test"
 COPY --chown=app:app Gemfile Gemfile.lock /
 COPY --chown=app:app . .

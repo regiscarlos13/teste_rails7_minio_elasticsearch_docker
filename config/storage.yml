@@ -4,11 +4,11 @@ test:
 
 minio:
   service: S3
-  endpoint: <%= ENV['MINIO_ROOT_HOST'] %>
-  access_key_id: <%= ENV['MINIO_ROOT_USER'] %>
-  secret_access_key: <%= ENV['MINIO_ROOT_PASSWORD'] %>
-  bucket: <%= ENV['MINIO_MEDIA_STORE_BUCKET'] %>
-  region: <%= ENV['AWS_REGION'] %>
+  endpoint: <%= ENV.fetch('MINIO_ROOT_HOST')  %>
+  access_key_id: <%= ENV.fetch('MINIO_ROOT_USER') { Rails.application.credentials.dig(minio, :user) %>
+  secret_access_key: <%= ENV.fetch('MINIO_ROOT_PASSWORD') { Rails.application.credentials.dig(minio, :password) %>
+  bucket: <%= ENV.fetch('MINIO_MEDIA_STORE_BUCKET') { Rails.application.credentials.dig(minio, :bucket) %>
+  region: <%= ENV.fetch('AWS_REGION') { Rails.application.credentials.dig(minio, :region) %>
   force_path_style: true
 
 local:

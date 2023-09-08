@@ -14,3 +14,5 @@ console:
 	${DOCKER} exec web /bin/bash
 test:
 	rspec
+reindex:
+	${DOCKER} exec web rake searchkick:reindex:all

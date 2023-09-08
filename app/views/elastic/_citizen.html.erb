@@ -1,0 +1,7 @@
+<%= content_tag :tr, id: dom_id(citizen) do %>
+  <td><%= citizen.name %></td>
+  <td><%= citizen.cpf %></td>
+  <td><%= citizen.email %></td>
+  <td><%= citizen.address.street %></td>
+  <td><%= citizen.address.city %></td>
+<% end %>
